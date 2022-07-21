@@ -24,6 +24,9 @@ p1Button.addEventListener("click", function () {
       //bulma css framework color classes
       p1Span.classList.add("has-text-success"); //DOMTokenListObject.method()
       p2Span.classList.add("has-text-danger");
+      //elementObject.property - disable buttons
+      p1Button.disabled = true
+      p2Button.disabled = true
     }
     p1Span.textContent = p1Score.toString();
   }
@@ -39,6 +42,9 @@ p2Button.addEventListener("click", function () {
       isGameOver = true;
       p2Span.classList.add("has-text-success"); //DOMTokenListObject.method()
       p1Span.classList.add("has-text-danger");
+      //elementObject.property - disable buttons
+      p1Button.disabled = true
+      p2Button.disabled = true
     }
     p2Span.textContent = p2Score.toString();
   }
@@ -64,4 +70,7 @@ function reset() {
   p2Span.textContent = "0";
   p1Span.classList.remove("has-text-success", "has-text-danger"); //DOMTokenListObject.method()
   p2Span.classList.remove("has-text-success", "has-text-danger");
+  //elementObject.property - un-disable buttons
+  p1Button.disabled = false
+  p2Button.disabled = false
 }
