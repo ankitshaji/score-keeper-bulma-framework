@@ -21,8 +21,9 @@ p1Button.addEventListener("click", function () {
     p1Score++;
     if (p1Score === winningScore) {
       isGameOver = true;
-      p1Span.classList.add("winner"); //DOMTokenListObject.method()
-      p2Span.classList.add("loser");
+      //bulma css framework color classes
+      p1Span.classList.add("has-text-success"); //DOMTokenListObject.method()
+      p2Span.classList.add("has-text-danger");
     }
     p1Span.textContent = p1Score.toString();
   }
@@ -36,8 +37,8 @@ p2Button.addEventListener("click", function () {
     p2Score++;
     if (p2Score === winningScore) {
       isGameOver = true;
-      p2Span.classList.add("winner"); //DOMTokenListObject.method()
-      p1Span.classList.add("loser");
+      p2Span.classList.add("has-text-success"); //DOMTokenListObject.method()
+      p1Span.classList.add("has-text-danger");
     }
     p2Span.textContent = p2Score.toString();
   }
@@ -61,6 +62,6 @@ function reset() {
   p2Score = 0;
   p1Span.textContent = "0";
   p2Span.textContent = "0";
-  p1Span.classList.remove("winner", "loser"); //DOMTokenListObject.method()
-  p2Span.classList.remove("winner", "loser");
+  p1Span.classList.remove("has-text-success", "has-text-danger"); //DOMTokenListObject.method()
+  p2Span.classList.remove("has-text-success", "has-text-danger");
 }
