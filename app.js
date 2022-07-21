@@ -4,6 +4,7 @@ const p2Button = document.querySelector("#p2Button");
 const p1Span = document.querySelector("#p1Span");
 const p2Span = document.querySelector("#p2Span");
 const resetButton = document.querySelector("#reset");
+const playToselect = document.querySelector("#playTo");
 
 //starting score variables
 let p1Score = 0;
@@ -38,12 +39,22 @@ p2Button.addEventListener("click", function () {
   }
 });
 
+playToselect.addEventListener("change", function (e) {
+  //this - elementObject(Target) - Execution Context
+  winningScore = window.parseInt(this.value); 
+  reset()
+});
+
 //eventListner method on buttonElementObject
 //when EventString happens on eventObject(Target) - pass in argument + Execute function expression
-resetButton.addEventListener("click", function () {
+resetButton.addEventListener("click", reset);
+
+//code seperation
+//named callback function expression
+function reset() {
   isGameOver = false;
   p1Score = 0;
   p2Score = 0;
   p1Span.textContent = "0";
   p2Span.textContent = "0";
-});
+}
