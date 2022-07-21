@@ -21,6 +21,8 @@ p1Button.addEventListener("click", function () {
     p1Score++;
     if (p1Score === winningScore) {
       isGameOver = true;
+      p1Span.classList.add("winner"); //DOMTokenListObject.method()
+      p2Span.classList.add("loser");
     }
     p1Span.textContent = p1Score.toString();
   }
@@ -34,6 +36,8 @@ p2Button.addEventListener("click", function () {
     p2Score++;
     if (p2Score === winningScore) {
       isGameOver = true;
+      p2Span.classList.add("winner"); //DOMTokenListObject.method()
+      p1Span.classList.add("loser");
     }
     p2Span.textContent = p2Score.toString();
   }
@@ -41,8 +45,8 @@ p2Button.addEventListener("click", function () {
 
 playToselect.addEventListener("change", function (e) {
   //this - elementObject(Target) - Execution Context
-  winningScore = window.parseInt(this.value); 
-  reset()
+  winningScore = window.parseInt(this.value);
+  reset();
 });
 
 //eventListner method on buttonElementObject
@@ -57,4 +61,6 @@ function reset() {
   p2Score = 0;
   p1Span.textContent = "0";
   p2Span.textContent = "0";
+  p1Span.classList.remove("winner", "loser"); //DOMTokenListObject.method()
+  p2Span.classList.remove("winner", "loser");
 }
