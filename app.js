@@ -1,11 +1,11 @@
-//code seperation - p1 object
+//code seperation/grouping related code - p1 object
 const p1 = {
   //Note -object keys are strings
   score: 0,
   button: document.querySelector("#p1Button"),
   span: document.querySelector("#p1Span"),
 };
-//code seperation - p2 object
+//code seperation/grouping related code- p2 object
 const p2 = {
   //Note -object keys are strings
   score: 0,
@@ -46,17 +46,19 @@ const playToselect = document.querySelector("#playTo");
 
 //game ending variables
 let isGameOver = false;
-let winningScore = 5;
+let winningScore = 3;
 
 //eventListner method on buttonElementObject
 //when EventString happens on eventObject(Target) - pass in argument + Execute function expression
 p1.button.addEventListener("click", function () {
+  //generalised named function exectuted - arguments p1,p2
   updateScores(p1, p2);
 });
 
 //eventListner method on buttonElementObject
 //when EventString happens on eventObject(Target) - pass in argument + Execute function expression
 p2.button.addEventListener("click", function () {
+  //generalised named function exectuted - arguments p2,p1
   updateScores(p2, p1);
 });
 
@@ -74,13 +76,12 @@ resetButton.addEventListener("click", reset);
 //named callback function expression
 function reset() {
   isGameOver = false;
-  p1Score = 0;
-  p2Score = 0;
-  p1Span.textContent = "0";
-  p2Span.textContent = "0";
-  p1Span.classList.remove("has-text-success", "has-text-danger"); //DOMTokenListObject.method()
-  p2Span.classList.remove("has-text-success", "has-text-danger");
-  //elementObject.property - un-disable buttons
-  p1Button.disabled = false;
-  p2Button.disabled = false;
+  //generalised object reset - loop over both objects
+  for (let p of [p1, p2]) {
+    p.score = 0;
+    p.span.textContent = "0";
+    p.span.classList.remove("has-text-success", "has-text-danger"); //DOMTokenListObject.method()
+    //elementObject.property - un-disable buttons
+    p.button.disabled = false;
+  }
 }
