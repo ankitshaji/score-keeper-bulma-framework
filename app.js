@@ -1,53 +1,63 @@
-//elementObjects
-const p1Button = document.querySelector("#p1Button");
-const p2Button = document.querySelector("#p2Button");
-const p1Span = document.querySelector("#p1Span");
-const p2Span = document.querySelector("#p2Span");
+//code seperation - p1 object
+const p1 = {
+  //Note -object keys are strings
+  score: 0,
+  button: document.querySelector("#p1Button"),
+  span: document.querySelector("#p1Span"),
+};
+//code seperation - p2 object
+const p2 = {
+  //Note -object keys are strings
+  score: 0,
+  button: document.querySelector("#p2Button"),
+  span: document.querySelector("#p2Span"),
+};
+
+//general named function expression for both p1 and p2
+//parameters (player,opponent) can take in arguments
+//(p1Object,p2Object) or (p2Object,p1Object)
+function updateScores(player, opponent) {
+  if (!isGameOver) {
+    //if(true)
+    //object.property
+    player.score++;
+
+    if (player.score === winningScore) {
+      isGameOver = true;
+
+      //bulma css framework color classes
+      //object.property = elementObject
+      player.span.classList.add("has-text-success"); //DOMTokenListObject.method()
+      opponent.span.classList.add("has-text-danger");
+
+      //object.property = elementObject
+      //elementObject.property - disable buttons
+      player.button.disabled = true;
+      opponent.button.disabled = true;
+    }
+    //object.property = elementObject
+    player.span.textContent = player.score.toString();
+  }
+}
+
+//general elementObjects
 const resetButton = document.querySelector("#reset");
 const playToselect = document.querySelector("#playTo");
 
-//starting score variables
-let p1Score = 0;
-let p2Score = 0;
 //game ending variables
 let isGameOver = false;
 let winningScore = 5;
 
 //eventListner method on buttonElementObject
 //when EventString happens on eventObject(Target) - pass in argument + Execute function expression
-p1Button.addEventListener("click", function () {
-  if (!isGameOver) {
-    //if(true)
-    p1Score++;
-    if (p1Score === winningScore) {
-      isGameOver = true;
-      //bulma css framework color classes
-      p1Span.classList.add("has-text-success"); //DOMTokenListObject.method()
-      p2Span.classList.add("has-text-danger");
-      //elementObject.property - disable buttons
-      p1Button.disabled = true
-      p2Button.disabled = true
-    }
-    p1Span.textContent = p1Score.toString();
-  }
+p1.button.addEventListener("click", function () {
+  updateScores(p1, p2);
 });
 
 //eventListner method on buttonElementObject
 //when EventString happens on eventObject(Target) - pass in argument + Execute function expression
-p2Button.addEventListener("click", function () {
-  if (!isGameOver) {
-    //if(true)
-    p2Score++;
-    if (p2Score === winningScore) {
-      isGameOver = true;
-      p2Span.classList.add("has-text-success"); //DOMTokenListObject.method()
-      p1Span.classList.add("has-text-danger");
-      //elementObject.property - disable buttons
-      p1Button.disabled = true
-      p2Button.disabled = true
-    }
-    p2Span.textContent = p2Score.toString();
-  }
+p2.button.addEventListener("click", function () {
+  updateScores(p2, p1);
 });
 
 playToselect.addEventListener("change", function (e) {
@@ -71,6 +81,6 @@ function reset() {
   p1Span.classList.remove("has-text-success", "has-text-danger"); //DOMTokenListObject.method()
   p2Span.classList.remove("has-text-success", "has-text-danger");
   //elementObject.property - un-disable buttons
-  p1Button.disabled = false
-  p2Button.disabled = false
+  p1Button.disabled = false;
+  p2Button.disabled = false;
 }
