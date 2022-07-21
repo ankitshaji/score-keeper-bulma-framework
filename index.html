@@ -20,8 +20,40 @@
     </style>
   </head>
   <body>
-    <!--inline span with id to get both 0s seperatly-->
-    <h1><span id="p1Span">0</span> to <span id="p2Span">0</span></h1>
+    <!--Bulma css framework-->
+    <!--container component-->
+    <div class="container">
+      <!--grid system - columns/column-->
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <!--card component-->
+          <div class="card">
+            <!--card component adding title-->
+            <header class="card-header">
+              <p class="card-header-title">Ping Pong Score Keeper</p>
+            </header>
+            <!--card component adding content-->
+            <div class="card-content">
+              <div class="content">
+                <!--inline span with id to get both 0s seperatly-->
+                <h1 class="title is-1">
+                  <span id="p1Span">0</span> to <span id="p2Span">0</span>
+                </h1>
+                <p class="subtitle">Use the buttons below to keep score</p>
+              </div>
+            </div>
+            <!--card component adding footer-->
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item">Save</a>
+              <a href="#" class="card-footer-item">Edit</a>
+              <a href="#" class="card-footer-item">Delete</a>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--rest of html-->
     <select name="playTo" id="playTo">
       <option value="3">3</option>
       <option value="5">5</option>
