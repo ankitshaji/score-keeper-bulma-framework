@@ -11,75 +11,95 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+    <style>
+      body {
+        background-color: black;
+        height: 100vh;
+      }
+    </style>
   </head>
   <body>
     <!--Bulma css framework-->
-    <!--section component-->
-    <section class="section">
-    <!--container component-->
-    <div class="container">
-      <!--grid system - columns/column-->
-      <div class="columns">
-        <!--is-half and is-offset-one-quarter -->
-        <div class="column is-half is-offset-one-quarter">
-          <!--card component-->
-          <div class="card">
-            <!--card component adding image-->
-            <div class="card-image">
-              <!--image component + bulma modifier class is-2by1-->
-              <figure class="image is-2by1">
-                <img src="https://pixahive.com/wp-content/uploads/2020/09/Table-Tennis-equipment-47280-pixahive.jpg" alt="image not found">
-              </figure>
-            </div>
-            <!--card component adding title-->
-            <header class="card-header">
-              <p class="card-header-title">Ping Pong Score Keeper</p>
-            </header>
-            <!--card component adding content-->
-            <div class="card-content">
-              <div class="content">
-                <!--title component + bulma modifier class typography size-->
-                <!--inline span with id to get both 0s seperatly-->
-                <h1 class="title is-1">
-                  <span id="p1Span">0</span> to <span id="p2Span">0</span>
-                </h1>
-                <!--subtitle component-->
-                <p class="subtitle">Use the buttons below to keep score</p>
+    <!--section component + modifier color class-->
+    <section class="section has-background-black-bis">
+      <!--container component-->
+      <div class="container">
+        <!--grid system - columns/column-->
+        <div class="columns">
+          <!--is-half and is-offset-one-quarter -->
+          <div class="column is-half is-offset-one-quarter">
+            <!--card component-->
+            <div class="card">
+              <!--card component adding image-->
+              <div class="card-image">
+                <!--image component + bulma modifier class is-2by1-->
+                <figure class="image is-2by1">
+                  <img
+                    src="https://pixahive.com/wp-content/uploads/2020/09/Table-Tennis-equipment-47280-pixahive.jpg"
+                    alt="image not found"
+                  />
+                </figure>
               </div>
-              <!--label class + bulma modifier classes is-large is-inline-->
-              <!--for attribute value connects to select id attribute value-->
-              <label for="playTo" class="label is-large is-inline"
-                >Playing to
-              </label>
-              <!--select component + bulma modifier class is-rounded-->
-              <div class="select is-rounded">
-                <select name="playTo" id="playTo">
-                  <option value="3">3</option>
-                  <option value="5">5</option>
-                  <option value="8">8</option>
-                  <option value="12">12</option>
-                  <option value="15">15</option>
-                </select>
+              <!--card component adding title-->
+              <header class="card-header">
+                <p class="card-header-title">Ping Pong Score Keeper</p>
+              </header>
+              <!--card component adding content-->
+              <div class="card-content">
+                <div class="content">
+                  <!--title component + bulma modifier class typography size-->
+                  <!--inline span with id to get both 0s seperatly-->
+                  <h1 class="title is-2">
+                    <span id="p1Span">0</span> to <span id="p2Span">0</span>
+                  </h1>
+                  <!--subtitle component-->
+                  <p class="subtitle is-5">
+                    Use the buttons below to keep score
+                  </p>
+                </div>
+                <!--label class + bulma modifier classes is-large is-inline-->
+                <!--for attribute value connects to select id attribute value-->
+                <label for="playTo" class="label is-medium is-inline"
+                  >Playing to
+                </label>
+                <!--select component + bulma modifier class is-rounded-->
+                <div class="select is-rounded">
+                  <select name="playTo" id="playTo">
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                    <option value="15">15</option>
+                  </select>
+                </div>
               </div>
+              <!--card component adding footer-->
+              <footer class="card-footer">
+                <!--button component + bulma modifier class color size, card-footer-item-->
+                <button
+                  id="p1Button"
+                  class="button is-primary card-footer-item is-medium"
+                >
+                  +1 Player One
+                </button>
+                <button
+                  id="p2Button"
+                  class="button is-info card-footer-item is-medium"
+                >
+                  +2 Player One
+                </button>
+                <button
+                  id="reset"
+                  class="button is-danger card-footer-item is-medium"
+                >
+                  Reset
+                </button>
+              </footer>
             </div>
-            <!--card component adding footer-->
-            <footer class="card-footer">
-              <!--button component + bulma modifier class color, card-footer-item-->
-              <button id="p1Button" class="button is-primary card-footer-item">
-                +1 Player One
-              </button>
-              <button id="p2Button" class="button is-info card-footer-item">
-                +2 Player One
-              </button>
-              <button id="reset" class="button is-danger card-footer-item">
-                Reset
-              </button>
-            </footer>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
     <script src="app.js"></script>
   </body>
 </html>
